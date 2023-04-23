@@ -22,6 +22,7 @@ This script is for windows users who want to download different ranges of the sc
 Since the script downloads in parallel using a pool, it is very efficent in optimal conditions:
 ![image](https://user-images.githubusercontent.com/49734270/233860549-3ede5b8c-227e-4831-b14c-397ac71fbba3.png)<br>
 With few things running and a 3Gb/s fibreoptic download connection I was able to download 120MB .tif files in a bit over 1 second each.
+Compared to >60s per file from the sequential wget method presented in the download documentation, this represents a large improvement.
 The server they are hosted on is also very fast, but high demand could slow the downloads down. Essentially the script shouldnt be a bottleneck.
 It may take longer to download just a handful of files as its not taking advantage of the parallelism (20-30 seconds each in my experience)
 

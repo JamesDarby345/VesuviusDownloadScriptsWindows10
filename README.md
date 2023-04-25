@@ -20,6 +20,9 @@ This script is for windows users who want to download different ranges of the sc
 
 **$url** points to the folder on the download server of where to download from. By default it points to Full Scroll 1, you can change the path to point to the other full scroll, or the fragments and the script will work to download those files as well.
 
+## Useful Alternative Usecase
+Some users have reported that they are missing some frames after downloading with rclone, with $overwriteExistingFiles set to false (default value) you can use this script to run over the range with those few missing frames to quickly download them. Also if some frames are corrupted, you can delete them and run the script like this as well.
+
 ## Performance
 Since the script downloads in parallel using a pool, it is very efficent in optimal conditions:
 ![image](https://user-images.githubusercontent.com/49734270/233860549-3ede5b8c-227e-4831-b14c-397ac71fbba3.png)<br>

@@ -4,13 +4,15 @@ A powershell script to quickly download data from the vesuvius scroll challenge
 ## Setup
 To use the script you will need to accept the Vesuvius Scroll Prize Data license: https://scrollprize.org/data
 Once you have accepted you will be informed of the username and password and you will need to replace $user and $password with those values
-Then simply place the script in the folder you would like the .tif files to be downloaded to and run the script with an administrator powershell window.
+Then simply place the script in the folder you would like the .tif files to be downloaded to and run the script with an administrator powershell window. I recommend using the latest script version as it will have the most features.
 
 ## Usecase
 This script is for windows users who want to download different ranges of the scroll quickly, with minimal setup. The script has no dependencies that a windows 10 machine shouldnt already have, and just neeeds to be placed in the target folder, have the parameters edited to the desired range, and ran with powershell. It can also be used to download the entire scroll, but rclone as suggested on the download doc page may be better for this usecase as it has the ability to retry failed downloads, though I never ran into that issue testing this script. rclone does require you to install it though. 
 
 ## Parameters
 **$ranges** specifies the range of .tif files you would like to download. I have set it to a few from the front, a large chunk in the middle, and a few from the end of the scroll. This can specify either one range, or a single file by setting the start equal to the end, or multiple ranges. The number corresponds to the tif filename.
+
+**$null = $runspacePool.SetMaxRunspaces(X)** specifies the maximum number of concurrent runspaces, the optimal value will depend on yout internet connection and system resources. I recommend testing the script on batches of 50-100 files to get representative performance with a variety of values. I found 200 works well for me but I have very fast fibreoptic internet and a fairly fast computer, writing to an SSD, so lower values are probably optimal. Setting the value too high can result in system resource contention and longer download times. Testing 10, 50, 100, 200 would be a good start to see how it effects performance.
 
 **$overwriteExistingFiles** prevents the script from redownloading files that already exist in the folder. You can set it to true if you want to redownload, because some of the data is corrupted or something like that.
 
